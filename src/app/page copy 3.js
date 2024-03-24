@@ -13,16 +13,16 @@ import Sidebar from './_components/Sidebar';
 const Home = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const toggleSidebar = () => {
+  const handleSidebarToggle = () => {
     setIsSidebarOpen(!isSidebarOpen);
   }
 
   return (
     <main className={`flex ${isSidebarOpen ? 'overflow-hidden' : ''}`}>
 
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={handleSidebarToggle} />
 
-      <div className={`flex-1 overflow-y-auto transition-all duration-300 ${isSidebarOpen ? 'ml-[320px]' : 'ml-0'}`}>
+      <div className={`flex-1 overflow-y-auto ${isSidebarOpen ? 'ml-[320px]' : 'ml-0'}`}>
         <div className='grid grid-cols-3 gap-8 p-6 w-full'>
           <div className='col-span-2'>
             <div className='h-12'>
@@ -78,13 +78,13 @@ const Home = () => {
             </div >
           </div>
 
-          <aside className='hidden lg:block'>
+          <aside className='w-[320px] hidden lg:block'>
             <div className='h-12'>
               <h2 className='text-2xl font-bold uppercase text-rose-500 mb-6'>Market Stories</h2>
             </div>
 
             {/* Stories Cards */}
-            <div className='space-y-6 '>
+            <div className='space-y-6'>
               {
                 storiesData.map((story, index) => (
                   <div key={index} className='card card-compact bg-base-100 border border-gray-400'>

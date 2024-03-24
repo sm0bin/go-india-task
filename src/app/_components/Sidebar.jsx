@@ -1,22 +1,15 @@
-'use client';
+import React from 'react';
 import Link from 'next/link';
-import React, { useState } from 'react';
 import { FaUserCircle, FaBell } from 'react-icons/fa';
 import { MdInsertComment } from 'react-icons/md';
 import { TbCoinFilled } from 'react-icons/tb';
 
-const SidebarButton = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-    const handleSidebarToggle = () => {
-        setIsSidebarOpen(!isSidebarOpen);
-    }
-
+const Sidebar = ({ isOpen, toggleSidebar }) => {
     return (
         <>
-            <div className={`h-screen min-w-[320px] fixed left-0 bg-sky-950 z-50 text-white transform transition-transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+            <div className={`h-screen min-w-[320px] fixed left-0 bg-sky-950 z-50 text-white transform transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 <div className='border-b border-gray-300 flex items-center p-4'>
-                    <div className='flex items-center grow gap-2'>
+                    <div className='flex items-center gap-2 grow'>
                         <FaUserCircle className='text-2xl' />
                         <h1 className='text-xl font-medium inline'>Hello. user</h1>
                     </div>
@@ -33,14 +26,13 @@ const SidebarButton = () => {
                         <li className='py-1 px-3 pl-10 hover:bg-gray-500/50'><Link href='/news'>News/Interviews</Link></li>
                     </ul>
                 </div>
-                <button onClick={handleSidebarToggle} className='bg-sky-950 absolute top-1/2 -right-7 z-[40] w-8
+                <button onClick={toggleSidebar} className='bg-sky-950 absolute top-1/2 -right-7 z-[40] w-8
                 h-12 rounded-r-md'>
-                    {isSidebarOpen ? '❮' : '❯'}
+                    {isOpen ? '❮' : '❯'}
                 </button>
             </div>
-
         </>
     );
 };
 
-export default SidebarButton;
+export default Sidebar;
