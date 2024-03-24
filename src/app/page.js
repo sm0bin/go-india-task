@@ -23,13 +23,13 @@ const Home = () => {
             discussionData.map((discussion, index) => (
               <div key={index} className='card card-side card-compact bg-base-100 border border-gray-400'>
                 <div className='pl-4 pt-4'>
-
                   <div className="avatar">
                     <div className="w-12 rounded-full">
                       <Image src={discussion.userImage} width={100} height={100} />
                     </div>
                   </div>
                 </div>
+
                 <div className='card-body pl-4 gap-4'>
                   <div className='flex items-center space-x-4'>
                     <div className='flex items-center gap-4'>
@@ -38,7 +38,7 @@ const Home = () => {
                     </div>
                   </div>
                   <p>{discussion.post}</p>
-                  {/* <p className='text-sm text-gray-500'>Likes: {discussion.likes} | Views: {discussion.views} | Comments: {discussion.comments}</p> */}
+
                   <div className='flex items-center justify-between pr-6'>
                     <button className='btn btn-ghost btn-sm'>
                       <FaRegHeart className='text-xl' />
@@ -56,7 +56,6 @@ const Home = () => {
                       <FiShare2 className='text-xl' />
                       <span>Share</span>
                     </button>
-
                   </div>
 
                 </div>
