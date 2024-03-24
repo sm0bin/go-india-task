@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from 'react';
-
 import Sidebar from './_components/Sidebar';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import DiscussionSection from './_components/DiscussionSection';
