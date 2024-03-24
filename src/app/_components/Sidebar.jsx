@@ -7,7 +7,7 @@ import { TbCoinFilled } from 'react-icons/tb';
 const Sidebar = ({ isOpen, toggleSidebar }) => {
     return (
         <>
-            <div className={`h-screen min-w-[320px] fixed left-0 bg-sky-950 z-50 text-white transform transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+            <div className={`h-screen min-w-56 md:min-w-[320px] fixed left-0 bg-sky-950 z-50 text-white transform transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 <div className='border-b border-gray-300 flex items-center p-4'>
                     <div className='flex items-center gap-2 grow'>
                         <FaUserCircle className='text-2xl' />
