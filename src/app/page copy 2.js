@@ -1,5 +1,4 @@
-'use client'
-import React, { useState } from 'react';
+import React from 'react';
 import storiesData from '@/data/stories';
 import discussionData from '@/data/discussion';
 import Image from 'next/image';
@@ -10,25 +9,19 @@ import { FiShare2 } from 'react-icons/fi';
 import SidebarButton from './_components/SidebarButton';
 
 const Home = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const handleSidebarToggle = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  }
-
   return (
-    <main className={`flex ${isSidebarOpen ? 'overflow-hidden' : ''}`}>
+    <main className='h-screen'>
 
-      <SidebarButton isOpen={isSidebarOpen} toggleSidebar={handleSidebarToggle} />
+      <div className='flex justify-end'>
 
-      <div className={`flex-1 overflow-y-auto ${isSidebarOpen ? 'ml-[320px]' : 'ml-0'}`}>
-        <div className='grid grid-cols-3 gap-8 p-6 w-full'>
+        <SidebarButton />
+        <div className='grid grid-cols-3 h-screen gap-8 p-6 grow'>
           <div className='col-span-2'>
             <div className='h-12'>
               <h1 className='text-4xl font-bold uppercase text-rose-500 mb-6'>Discussion Forum</h1>
             </div>
 
-            {/* Discussion Cards */}
+            {/* Discussion Card */}
             <div className='space-y-6'>
               {
                 discussionData.map((discussion, index) => (
@@ -77,13 +70,14 @@ const Home = () => {
             </div >
           </div>
 
-          <aside className='w-[320px] hidden lg:block'>
+          <aside className='col-span-1'>
             <div className='h-12'>
               <h2 className='text-2xl font-bold uppercase text-rose-500 mb-6'>Market Stories</h2>
             </div>
 
             {/* Stories Cards */}
             <div className='space-y-6'>
+
               {
                 storiesData.map((story, index) => (
                   <div key={index} className='card card-compact bg-base-100 border border-gray-400'>
@@ -109,3 +103,6 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
